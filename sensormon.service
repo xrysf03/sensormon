@@ -1,0 +1,16 @@
+[Unit]
+Description=HW Health Sensor Monitoring Daemon
+After=network.target
+ConditionPathExists=/etc/sensormon.conf
+
+[Service]
+Type=simple
+# When running sensormon via Systemd, 
+# you'd better DISABLE internal daemonization in sensormon.conf .
+# Systemd prefers to present a "control terminal" to the services it manages.
+#ExecStartPre=/bin/mkdir -p /var/run/agentx
+ExecStart=/usr/sbin/sensormon.pl
+#ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
