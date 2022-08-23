@@ -688,7 +688,7 @@ while (1)
 		
 		print $msgText;
 
-		my $mgsSeverity = "All sensors OK";
+		my $msgSeverity = "All sensors OK";
 		if ($global_do_err)
 		{
 			$msgSeverity = "ALARM!!!";
