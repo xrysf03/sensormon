@@ -9,6 +9,9 @@ Type=simple
 # you'd better DISABLE internal daemonization in sensormon.conf .
 # Systemd prefers to present a "control terminal" to the services it manages.
 #ExecStartPre=/bin/mkdir -p /var/run/agentx
+Restart=on-failure
+RestartSec=900s
+ExecStartPre=/bin/sleep 5
 ExecStart=/usr/sbin/sensormon.pl
 #ExecReload=/bin/kill -HUP $MAINPID
 
